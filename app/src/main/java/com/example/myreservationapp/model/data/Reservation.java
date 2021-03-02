@@ -1,112 +1,58 @@
 package com.example.myreservationapp.model.data;
 
-import com.example.myreservationapp.util.Day;
+import java.sql.Time;
 
 public class Reservation {
 
     //integer Id
     private int id;
-    private Day day;
-    private double price;
-    private int numberOfGuests;
-    private int numberOfRoom;
-    private String roomName;
-    private int numberOfNights;
-    private String firstNameOfGuest;
-    private String lastNameOfGuest;
+    //private Day day;
+    private Time check_in_time;
+    private Time check_out_time;
+    private String check_in_date;
+    private String check_out_date;
 
-    public Reservation(int id, String firstNameOfGuest, String lastNameOfGuest, Day day, int numberOfGuests, int numberOfRoom, String roomName, int numberOfNights, double price) {
+    public Reservation(int id, String check_in_time, String check_out_time, String check_in_date, String check_out_date) {
         this.id = id;
-        this.firstNameOfGuest = firstNameOfGuest;
-        this.lastNameOfGuest = lastNameOfGuest;
-        this.day = day;
-        this.numberOfGuests = numberOfGuests;
-        this.numberOfRoom = numberOfRoom;
-        this.roomName = roomName;
-        this.numberOfNights = numberOfNights;
-        this.price = price;
+        this.check_in_time = check_in_time;
+        this.check_out_time = check_out_time;
+        this.check_in_date = check_in_date;
+        this.check_out_date = check_out_date;
     }
 
     public int getId() {
         return id;
     }
 
-    public Day getDay() {
-        return day;
+    public String getCheck_in_time() {
+        return String.valueOf(check_in_time);
     }
 
-    public void setDay(Day day) {
-        this.day = day;
+    public void setCheck_in_time(Time check_in_time) {
+        this.check_in_time = check_in_time;
     }
 
-    public double getPrice() {
-        return price;
+    public String getCheck_out_time() {
+        return String.valueOf(check_out_time);
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setCheck_out_time(Time check_out_time) {
+        this.check_out_time = check_out_time;
     }
 
-    public int getNumberOfGuests() {
-        return numberOfGuests;
+    public String getCheck_in_date() {
+        return check_in_date;
     }
 
-    public void setNumberOfGuests(int numberOfGuests) {
-        this.numberOfGuests = numberOfGuests;
+    public void setCheck_in_date(String check_in_date) {
+        this.check_in_date = check_in_date;
     }
 
-    public int getNumberOfRoom() {
-        return numberOfRoom;
+    public String getCheck_out_date() {
+        return check_out_date;
     }
 
-    public void setNumberOfRoom(int numberOfRoom) {
-        this.numberOfRoom = numberOfRoom;
-    }
-
-    public String getRoomName() {
-        return roomName;
-    }
-
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
-    }
-
-    public int getNumberOfNights() {
-        return numberOfNights;
-    }
-
-    public void setNumberOfNights(int numberOfNights) {
-        this.numberOfNights = numberOfNights;
-    }
-
-    public String getFirstNameOfGuest() {
-        return firstNameOfGuest;
-    }
-
-    public void setFirstNameOfGuest(String firstNameOfGuest) {
-        this.firstNameOfGuest = firstNameOfGuest;
-    }
-
-    public String getLastNameOfGuest() {
-        return lastNameOfGuest;
-    }
-
-    public void setLastNameOfGuest(String lastNameOfGuest) {
-        this.lastNameOfGuest = lastNameOfGuest;
-    }
-
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "id=" + id +
-                ", day=" + day +
-                ", price=" + price +
-                ", numberOfGuests=" + numberOfGuests +
-                ", numberOfRoom=" + numberOfRoom +
-                ", roomName='" + roomName + '\'' +
-                ", numberOfNights=" + numberOfNights +
-                ", firstNameOfGuest='" + firstNameOfGuest + '\'' +
-                ", lastNameOfGuest='" + lastNameOfGuest + '\'' +
-                '}';
+    public void setCheck_out_date(String check_out_date) {
+        this.check_out_date = check_out_date;
     }
 }

@@ -7,17 +7,52 @@
     tools:context=".view.ui.activity.MainActivity">
 
     <EditText
+        android:id="@+id/check_out_date_editText"
+        android:layout_width="109dp"
+        android:layout_height="37dp"
+        android:layout_margin="16dp"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="2dp"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:hint="Check Out Date"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/check_out_time_edittext"
+        app:layout_constraintEnd_toEndOf="@+id/check_in_time_edittext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check_in_time_edittext" />
+
+    <EditText
+        android:id="@+id/check_in_time_edittext"
+        android:layout_width="87dp"
+        android:layout_height="40dp"
+        android:layout_margin="14dp"
+        android:layout_marginHorizontal="1dp"
+        android:layout_marginVertical="1dp"
+        android:layout_marginStart="12dp"
+        android:ems="5"
+        android:hint="Check In Time"
+        android:inputType="textPersonName"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/in_calendarView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check_in_date_edittext" />
+
+    <EditText
         android:id="@+id/first_name_edittext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="14dp"
         android:layout_marginHorizontal="1dp"
-        android:layout_marginVertical="2dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
+        android:layout_marginVertical="1dp"
+        android:layout_marginTop="1dp"
+        android:ems="5"
         android:hint="First Name"
         android:inputType="textPersonName"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,13 +61,13 @@
         android:id="@+id/last_name_edittext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="14dp"
         android:layout_marginHorizontal="1dp"
-        android:layout_marginVertical="2dp"
-        android:ems="10"
+        android:layout_marginVertical="1dp"
+        android:ems="5"
         android:hint="Last Name"
         android:inputType="textPersonName"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/first_name_edittext" />
@@ -41,11 +76,11 @@
         android:id="@+id/room_name_edittext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:ems="10"
+        android:layout_margin="14dp"
+        android:ems="5"
         android:layout_marginHorizontal="1dp"
-        android:layout_marginVertical="2dp"
-        android:textSize="14sp"
+        android:layout_marginVertical="1dp"
+        android:textSize="12sp"
         android:hint="Room Name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,14 +91,13 @@
         android:id="@+id/number_of_room_edittext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginHorizontal="2dp"
-        android:layout_marginVertical="2dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
+        android:layout_margin="14dp"
+        android:layout_marginHorizontal="1dp"
+        android:layout_marginVertical="1dp"
+        android:ems="5"
         android:hint="Number Of Room"
         android:inputType="textPersonName"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/room_name_edittext" />
@@ -72,11 +106,11 @@
         android:id="@+id/number_of_guests_edittext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:ems="10"
-        android:layout_marginHorizontal="2dp"
-        android:layout_marginVertical="2dp"
-        android:textSize="14sp"
+        android:layout_margin="14dp"
+        android:ems="5"
+        android:layout_marginHorizontal="1dp"
+        android:layout_marginVertical="1dp"
+        android:textSize="12sp"
         android:hint="Number Of Guests"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,11 +121,11 @@
         android:id="@+id/number_of_nights_edittext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:ems="10"
-        android:layout_marginHorizontal="2dp"
-        android:layout_marginVertical="2dp"
-        android:textSize="14sp"
+        android:layout_margin="14dp"
+        android:ems="5"
+        android:layout_marginHorizontal="1dp"
+        android:layout_marginVertical="1dp"
+        android:textSize="12sp"
         android:hint="Number Of Nights"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,11 +137,11 @@
         android:id="@+id/total_price_edittext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:ems="10"
-        android:layout_marginHorizontal="2dp"
-        android:layout_marginVertical="2dp"
-        android:textSize="14sp"
+        android:layout_margin="14dp"
+        android:ems="5"
+        android:layout_marginHorizontal="1dp"
+        android:layout_marginVertical="1dp"
+        android:textSize="12sp"
         android:hint="Total Price £"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,57 +149,61 @@
         app:layout_constraintTop_toBottomOf="@+id/number_of_nights_edittext" />
 
 
-    <RadioGroup
-        android:id="@+id/days_radio_group"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <EditText
+        android:id="@+id/check_in_date_edittext"
+        android:layout_width="87dp"
+        android:layout_height="40dp"
+        android:layout_margin="14dp"
+        android:layout_marginHorizontal="1dp"
+        android:layout_marginVertical="1dp"
+        android:ems="5"
+        android:hint="Check In Date"
+        android:inputType="textPersonName"
+        android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/total_price_edittext">
+        app:layout_constraintTop_toBottomOf="@+id/total_price_edittext" />
 
-        <RadioButton
-            android:id="@+id/radio_monday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Monday" />
 
-        <RadioButton
-            android:id="@+id/radio_tuesday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tuesday" />
+    <!-- Add CalendarView to display the Calendar for check in -->
 
-        <RadioButton
-            android:id="@+id/radio_wednesday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Wednesday" />
+    <CalendarView
+        android:id="@+id/in_calendarView"
+        android:layout_width="288dp"
+        android:layout_height="138dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toEndOf="@+id/check_in_date_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/total_price_edittext" />
 
-        <RadioButton
-            android:id="@+id/radio_thursday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Thursday" />
+    <EditText
+        android:id="@+id/check_out_time_edittext"
+        android:layout_width="110dp"
+        android:layout_height="37dp"
+        android:layout_margin="16dp"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="2dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="104dp"
+        android:ems="10"
+        android:hint="Check Out Time"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/add_reservation_button"
+        app:layout_constraintEnd_toEndOf="@+id/check_out_date_editText"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <RadioButton
-            android:id="@+id/radio_friday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Friday" />
+    <!-- Add CalendarView to display the Calendar for check out -->
 
-        <RadioButton
-            android:id="@+id/radio_saturday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Saturday" />
-
-        <RadioButton
-            android:id="@+id/radio_sunday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sunday" />
-    </RadioGroup>
+    <CalendarView
+        android:id="@+id/out_calendarView"
+        android:layout_width="284dp"
+        android:layout_height="145dp"
+        app:layout_constraintBottom_toTopOf="@+id/add_reservation_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/check_out_time_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/in_calendarView" />
 
     <Button
         android:id="@+id/add_reservation_button"

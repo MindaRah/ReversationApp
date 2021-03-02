@@ -14,6 +14,7 @@ import com.example.myreservationapp.model.ReservationDBHelper;
 import com.example.myreservationapp.model.data.Reservation;
 import com.example.myreservationapp.util.Day;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,7 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.example.myreservationapp.model.ReservationDBHelper.DAY_OF_WEEK_COLUMN;
+
 import static com.example.myreservationapp.model.ReservationDBHelper.FIRST_NAME_COLUMN;
 import static com.example.myreservationapp.model.ReservationDBHelper.LAST_NAME_COLUMN;
 import static com.example.myreservationapp.model.ReservationDBHelper.NUMBER_OF_GUESTS_COLUMN;
@@ -32,20 +33,15 @@ import static com.example.myreservationapp.model.ReservationDBHelper.NUMBER_OF_N
 import static com.example.myreservationapp.model.ReservationDBHelper.NUMBER_OF_ROOM_COLUMN;
 import static com.example.myreservationapp.model.ReservationDBHelper.RESERVATION_ID_COLUMN;
 import static com.example.myreservationapp.model.ReservationDBHelper.ROOM_NAME_COLUMN;
-import static com.example.myreservationapp.model.ReservationDBHelper.TOTAL_PRICE_COLUMN;
+
 
 public class MainActivity extends AppCompatActivity {
 
 
     private ReservationDBHelper reservationDBHelper;
 
-    //global variable set to default as Tuesday.
-    private Day day = Day.TUESDAY;
     private int reservationID;
 
-
-    @BindView(R.id.days_radio_group)
-    public RadioGroup radioGroup;
 
     @BindView(R.id.first_name_edittext)
     public EditText firstNameEditText;
@@ -67,6 +63,18 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.total_price_edittext)
     public EditText totalPriceEditText;
+
+    @BindView(R.id.check_in_time_edittext)
+    public EditText checkInTimeEditText;
+
+    @BindView(R.id.check_out_time_edittext)
+    public EditText checkOutTimeEditText;
+
+    @BindView(R.id.check_in_date_edittext)
+    public EditText checkInDateEditText;
+
+    @BindView(R.id.check_out_date_editText)
+    public EditText checkOutDateEditText;
 
     @OnClick(R.id.add_reservation_button)
 
@@ -101,16 +109,30 @@ public class MainActivity extends AppCompatActivity {
         //set mealPriceEditText to empty
         numberOfNightsEditText.setText("");
 
-        //create new reservation objects (add the reservation) and insert it into reservation database and read it when we insert.
-        Reservation reservation = new Reservation(reservationID, firstName, lastName, day, numberOfGuests, numberOfRoom, roomName, numberOfNights, totalPrice);
+        String checkInTime = checkInTimeEditText.getText().toString().trim();
+        checkInTimeEditText.setText("");
 
-        ReservationDBHelper.insertNewReservation(reservation);
+        String checkOutTime = checkOutTimeEditText.getText().toString().trim();
+        checkOutTimeEditText.setText("");
+
+        String checkInDate = checkInDateEditText.getText().toString().trim();
+        checkInTimeEditText.setText("");
+
+        String checkOutDate = checkOutDateEditText.getText().toString().trim();
+        checkOutDateEditText.setText("");
+
+        //java.sql.Time check_out_time,
+
+        //create new reservation objects (add the reservation) and insert it into reservation database and read it when we insert.
+        Reservation reservation = new Reservation(reservationID, checkInTime, checkOutTime, checkInDate, checkOutDate);
+
+        //ReservationDBHelper.insertNewReservation(reservation);
 
         //inserting meals manually
         //ReservationDBHelper.insertNewReservation(reservation);
        // ReservationDBHelper.insertNewReservation(reservation);
         //every time I add the meal read from the database
-        readAllReservations();
+       // readAllReservations();
     }
 
 
@@ -125,84 +147,19 @@ public class MainActivity extends AppCompatActivity {
 
         //instantiate -  create new database objects
         reservationDBHelper = new ReservationDBHelper(this);
-        readAllReservations();
 
-        //Set to automatic
-        getCurrentDayOfWeek();
+        //readAllReservations();
 
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.radio_monday:
-                        day = Day.MONDAY;
-                        break;
-                    case R.id.radio_tuesday:
-                        day = Day.TUESDAY;
-                        break;
-                    case R.id.radio_wednesday:
-                        day = Day.WEDNESDAY;
-                        break;
-                    case R.id.radio_thursday:
-                        day = Day.THURSDAY;
-                        break;
-                    case R.id.radio_friday:
-                        day = Day.FRIDAY;
-                        break;
-                    case R.id.radio_saturday:
-                        day = Day.SATURDAY;
-                        break;
-                    case R.id.radio_sunday:
-                        day = Day.SUNDAY;
-                        break;
-                }
-            }
-        });
+// set date here
     }
     //When the app starts it is selecting automatically according to the current day od the week.
-    private void getCurrentDayOfWeek() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE", Locale.UK);
-        String dayString = simpleDateFormat.format(new Date()).toUpperCase();
-        //Log.d("DAY", dayString); //The day was small letters
 
-        switch (dayString) {
-            case "MONDAY":
-                day = Day.MONDAY;
-                radioGroup.check(R.id.radio_monday);
-                break;
-            case "TUESDAY":
-                day = Day.TUESDAY;
-                radioGroup.check(R.id.radio_tuesday);
-                break;
-            case "WEDNESDAY":
-                day = Day.WEDNESDAY;
-                radioGroup.check(R.id.radio_wednesday);
-                break;
-            case "THURSDAY":
-                day = Day.THURSDAY;
-                radioGroup.check(R.id.radio_thursday);
-                break;
-            case "FRIDAY":
-                day = Day.FRIDAY;
-                radioGroup.check(R.id.radio_friday);
-                break;
-            case "SATURDAY":
-                day = Day.SATURDAY;
-                radioGroup.check(R.id.radio_saturday);
-                break;
-            case "SUNDAY":
-                day = Day.SUNDAY;
-                radioGroup.check(R.id.radio_sunday);
-                break;
-        }
-
-    }
 //
    // private void readAllReservations()
-
+/**
        private void readAllReservations() {
      //Cursor allReservations = ReservationDBHelper.getAllReservations();
-           Cursor allReservations = ReservationDBHelper.getAllReservations();
+           Cursor allReservations = ReservationDBHelper.readAllReservations;
      //if it's empty then it's still at -1.
      allReservations.move(-1);
      //array list
@@ -217,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
      int numberOfRoom =  allReservations.getInt(allReservations.getColumnIndex(NUMBER_OF_ROOM_COLUMN));
      int numberOfNights = allReservations.getInt(allReservations.getColumnIndex(NUMBER_OF_NIGHTS_COLUMN));
      String roomName = allReservations.getString(allReservations.getColumnIndex(ROOM_NAME_COLUMN));
-     Reservation reservation = new Reservation(reservationID, firstName, lastName, day, numberOfGuests, numberOfRoom, roomName, numberOfNights, totalPrice);
+     Reservation reservation = new Reservation(reservationID, checkInTime, checkOutTime, checkInDate, checkOutDate);
      Log.d("TAG_X",reservation.toString());
      }
      }
@@ -236,5 +193,10 @@ public class MainActivity extends AppCompatActivity {
     //        }
     //    });
     //}
-
+    //write into database and read into database
+    private void readAllReservations() {
+        List<Reservation> reservations = new ArrayList<>();
+        reservations = ReservationDBHelper.getAllReservations();
+    }
+ */
 }
